@@ -48,7 +48,7 @@ module Unicorn
     no_default_middleware = op[:no_default_middleware]
 
     # always called after config file parsing, may be called after forking
-    lambda do ||
+    lambda do |*args|
       inner_app = case ru
       when /\.ru$/
         raw = File.read(ru)
